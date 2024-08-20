@@ -17,13 +17,13 @@ class NotesView extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             context: context,
             builder: (context) {
-              return AddNoteBottomSheet();
+              return const AddNoteBottomSheet();
             },
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
@@ -51,13 +51,22 @@ class AddNoteBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        children: const [
+      padding: const EdgeInsets.all(16),
+      child: const Column(
+        children: [
           SizedBox(
             height: 35,
           ),
-          CustomTextField(),
+          CustomTextField(
+            hint: "Title",
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          CustomTextField(
+            hint: "Content",
+            maxLines: 7,
+          ),
         ],
       ),
     );
