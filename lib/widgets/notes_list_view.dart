@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:todu_app/widgets/custom_note.dart';
 
@@ -7,13 +6,17 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: 10,
-      itemBuilder: (BuildContext context, int index) {
-        return CustomNote();
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) {
+          return CustomNote();
+        },
+      ),
     );
   }
 }
