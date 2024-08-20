@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:todu_app/views/notes_view.dart';
+
 import 'package:todu_app/widgets/custom_button.dart';
 import 'package:todu_app/widgets/custom_text_field.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todu_app/views/edit_note_view.dart';
+
 import 'package:todu_app/views/notes_view.dart';
 
 void main() {
