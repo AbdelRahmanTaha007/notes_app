@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todu_app/constants.dart';
 import 'package:todu_app/widgets/add_note_bottomsheet.dart';
 import 'package:todu_app/widgets/custom_appbar.dart';
-import 'package:todu_app/widgets/custom_note.dart';
-import 'package:todu_app/widgets/custom_text_field.dart';
 import 'package:todu_app/widgets/notes_list_view.dart';
 
 class NotesView extends StatelessWidget {
@@ -34,7 +31,10 @@ class NotesView extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              CustomAppBar(),
+              CustomAppBar(
+                title: "Notes",
+                icon: Icons.search,
+              ),
               SizedBox(
                 height: 10,
               ),
@@ -46,4 +46,3 @@ class NotesView extends StatelessWidget {
     );
   }
 }
-
