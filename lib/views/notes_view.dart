@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todu_app/constants.dart';
+import 'package:todu_app/widgets/add_note_bottomsheet.dart';
 import 'package:todu_app/widgets/custom_appbar.dart';
 import 'package:todu_app/widgets/custom_note.dart';
 import 'package:todu_app/widgets/custom_text_field.dart';
@@ -45,30 +47,3 @@ class NotesView extends StatelessWidget {
   }
 }
 
-class AddNoteBottomSheet extends StatelessWidget {
-  const AddNoteBottomSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      child: const Column(
-        children: [
-          SizedBox(
-            height: 35,
-          ),
-          CustomTextField(
-            hint: "Title",
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          CustomTextField(
-            hint: "Content",
-            maxLines: 7,
-          ),
-        ],
-      ),
-    );
-  }
-}
