@@ -7,8 +7,10 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  bloc: ^8.1.4
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
   hive: ^2.2.3
   hive_flutter: ^1.1.0
 
