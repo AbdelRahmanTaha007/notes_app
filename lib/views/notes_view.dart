@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todu_app/controllers/add_note/show_notes/notes_cubit.dart';
+import 'package:todu_app/controllers/show_notes/notes_cubit.dart';
 import 'package:todu_app/widgets/add_note_bottomsheet.dart';
 import 'package:todu_app/widgets/custom_appbar.dart';
 import 'package:todu_app/widgets/notes_list_view.dart';
