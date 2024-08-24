@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todu_app/bloc_observer.dart';
 import 'package:todu_app/constants.dart';
+import 'package:todu_app/controllers/show_notes/notes_cubit.dart';
 import 'package:todu_app/models/note_model.dart';
 
 import 'package:todu_app/views/notes_view.dart';
@@ -23,9 +24,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
-        debugShowCheckedModeBanner: false,
-        home: NotesView());
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => NotesCubit(),)
+      ],
+      child: MaterialApp(
+          theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
+          debugShowCheckedModeBanner: false,
+          home: NotesView()),
+    );
   }
 }

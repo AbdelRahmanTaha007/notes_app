@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todu_app/controllers/add_note/add_note_cubit.dart';
+import 'package:todu_app/controllers/show_notes/notes_cubit.dart';
 import 'package:todu_app/widgets/add_note_form.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
@@ -19,6 +20,7 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
           if (state is AddNoteSuccess) {
             print("Successfully Added");
+            BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             Navigator.pop(context);
           }
         },

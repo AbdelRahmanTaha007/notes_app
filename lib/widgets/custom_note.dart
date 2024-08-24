@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todu_app/controllers/show_notes/notes_cubit.dart';
+import 'package:todu_app/models/note_model.dart';
 import 'package:todu_app/views/edit_note_view.dart';
 
 class CustomNote extends StatelessWidget {
-  const CustomNote({super.key});
+  CustomNote({super.key, required this.note});
 
+  NotesModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,7 +22,7 @@ class CustomNote extends StatelessWidget {
           padding: EdgeInsets.only(top: 10, bottom: 10, right: 0, left: 15),
           margin: EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
-              color: Color(0xFFFFCD7A),
+              color: Color(note.color),
               borderRadius: BorderRadius.circular(18)),
           width: double.infinity,
           child: Column(
@@ -28,7 +32,7 @@ class CustomNote extends StatelessWidget {
               ListTile(
                 title: Text(
                   maxLines: 1,
-                  "Hello There",
+                  note.title,
                   style: TextStyle(
                       overflow: TextOverflow.ellipsis,
                       fontSize: 25,
@@ -39,7 +43,7 @@ class CustomNote extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 15.0),
                   child: Text(
                     maxLines: 2,
-                    "Build your Career with This Project ,Hello Im a developer",
+                    note.subTitle,
                     style: TextStyle(
                         overflow: TextOverflow.ellipsis,
                         fontSize: 22,
@@ -47,13 +51,16 @@ class CustomNote extends StatelessWidget {
                   ),
                 ),
                 trailing: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      note.delete();
+                      BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                    },
                     icon: Icon(Icons.delete, size: 35, color: Colors.black)),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15, right: 15.0),
                 child: Text(
-                  "May 21, 2022",
+                  "21-9-23",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,

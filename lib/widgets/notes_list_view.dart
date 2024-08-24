@@ -33,7 +33,7 @@ class _NotesListViewState extends State<NotesListView> {
             shrinkWrap: true,
             itemCount: notes.length,
             itemBuilder: (BuildContext context, int index) {
-              return CustomNote();
+              return CustomNote(note: notes[index],);
             },
           ),
         );
