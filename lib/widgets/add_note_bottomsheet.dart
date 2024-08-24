@@ -8,25 +8,34 @@ class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddNoteCubit, AddNoteState>(
-      listener: (context, state) {
-        if (state is AddNoteFailure) {
-          print("Fail :( )");
-        }
-        if (state is AddNoteSuccess) {
-          Navigator.pop(context);
-        }
-      },
-      builder: (context, state) {
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.0),
-          child: SingleChildScrollView(
-            child: ModalProgressHUD(
-                inAsyncCall: state is AddNoteLoading ? true : false,
-                child: const AddNoteForm()),
-          ),
-        );
-      },
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFailure) {
+            print("Fail :()");
+          }
+          if (state is AddNoteLoading) {
+            print("Loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaading");
+          }
+          if (state is AddNoteSuccess) {
+            print("Successfully Added");
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddNoteLoading ? true : false,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 15.0,
+                  right: 15,
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: SingleChildScrollView(child: const AddNoteForm()),
+            ),
+          );
+        },
+      ),
     );
   }
 }
