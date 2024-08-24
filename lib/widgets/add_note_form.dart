@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todu_app/controllers/add_note/add_note_cubit.dart';
 import 'package:todu_app/models/note_model.dart';
+import 'package:todu_app/widgets/colors_list_view.dart';
 import 'package:todu_app/widgets/custom_button.dart';
 import 'package:todu_app/widgets/custom_text_field.dart';
 
@@ -46,29 +47,23 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 5,
           ),
           const SizedBox(
-            height: 35,
+            height: 10,
+          ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: const ColorsListView(),
+          ),
+          const SizedBox(
+            height: 10,
           ),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
                 isLoading: state is AddNoteLoading ? true : false,
                 onTap: () {
-                  // if (formKey.currentState!.validate()) {
-                  //   formKey.currentState!.save();
-                  //   var noteModel = NotesModel(
-                  //       title: title!,
-                  //       subTitle: subTitle!,
-                  //       date: DateTime.now.toString(),
-                  //       color: Colors.amber.value);
-                  //   BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                  // } else {
-                  //   autoValidate = AutovalidateMode.always;
-                  // }
                   setState(() {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      var currentDate = DateTime.now();
-                      // var formattedCurrentDate = ;
                       NotesModel noteModel = NotesModel(
                           title: title!,
                           subTitle: subTitle!,
