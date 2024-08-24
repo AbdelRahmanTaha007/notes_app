@@ -5,7 +5,6 @@ import 'package:todu_app/widgets/notes_list_view.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
-  final data = const [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
