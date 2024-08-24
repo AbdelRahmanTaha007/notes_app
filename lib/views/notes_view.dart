@@ -23,23 +23,23 @@ class NotesView extends StatelessWidget {
         },
         child: const Icon(Icons.add),
       ),
-      body: const SingleChildScrollView(
+      body:  SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               CustomAppBar(
                 title: "Notes",
                 icon: Icons.search,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              NotesListView(),
+              const NotesListView(),
             ],
           ),
         ),

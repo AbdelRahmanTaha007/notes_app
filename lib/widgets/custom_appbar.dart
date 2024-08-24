@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:todu_app/widgets/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key,required this.title,required this.icon});
+  CustomAppBar({super.key, required this.title, required this.icon, this.onPressed});
   final String title;
   final IconData icon;
+  void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,7 +15,10 @@ class CustomAppBar extends StatelessWidget {
           title,
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
-        customSearchIcon(icon: icon,)
+        customSearchIcon(
+          onPressed: onPressed,
+          icon: icon,
+        )
       ],
     );
   }
