@@ -12,8 +12,8 @@ class NotesView extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
             isScrollControlled: true,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             context: context,
             builder: (context) {
               return const AddNoteBottomSheet();
@@ -22,14 +22,14 @@ class NotesView extends StatelessWidget {
         },
         child: const Icon(Icons.add),
       ),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 40,
+                height: 55,
               ),
               CustomAppBar(
                 title: "Notes",

@@ -25,7 +25,7 @@ class _EditNoteViewState extends State<EditNoteView> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 40,
+              height: 55,
             ),
             CustomAppBar(
               onPressed: () {
